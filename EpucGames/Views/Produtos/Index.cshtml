@@ -1,0 +1,47 @@
+﻿@model IEnumerable<EpucGames.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de produtos</h1>
+
+<p>
+    <a asp-action="Create">Criar um novo produto.</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CaracteristicasProduto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CaracteristicasProduto)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdProduto">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdProduto">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdProduto">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
